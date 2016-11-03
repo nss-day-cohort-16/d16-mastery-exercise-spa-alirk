@@ -6,35 +6,16 @@ var CarLot = (function(carlot) {
     carlot.loadInventory = function(callback) {
         console.log("loadInventory is running");
 
-        var testCars = [
-            {
-              "make": "Mini Cooper",
-              "model": "Hardtop",
-              "year": "2006",
-              "price": "$13,999",
-              "description": "This car is fully-loaded and in perfect condition."
-            },
-            {
-              "make": "Jeep",
-              "model": "Wrangler",
-              "year": "2013",
-              "price": "$17,999",
-              "description": "This car only has 5,000 miles on it!  Like new!."
-            }
-        ];
+        var xhr = new XMLHttpRequest();
 
-        callback(testCars);
+        xhr.addEventListener('load', function() {
+            cars = JSON.parse(this.responseText).cars;
 
-        // var xhr = new XMLHttpRequest();
-
-        // xhr.addEventListener('load', function() {
-        //     cars = JSON.parse(this.responseText).cars;
-
-        //     callback(cars);
-        // });
+            callback(cars);
+        });
         
-        // xhr.open('GET', 'data/inventory.json');
-        // xhr.send();
+        xhr.open('GET', 'data/inventory.json');
+        xhr.send();
 
     };
 

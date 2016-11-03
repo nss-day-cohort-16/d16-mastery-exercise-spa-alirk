@@ -3,13 +3,13 @@
 var CarLot = (function(carlot){
 
 	carlot.activateEvents = function(event){
-		console.log("activateEvents is running");
 		var card = event.currentTarget;
+		console.log("activateEvents is running");
 		console.log('card in activateEvents', card);
 
 		document.getElementById('textInput').focus();
 		
-		carlot.changeStyling(card);
+		CarLot.resetStyling(card);
 	};
 	
 	return carlot;

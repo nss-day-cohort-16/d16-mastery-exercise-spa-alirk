@@ -3,30 +3,41 @@
 var CarLot = (function(carlot) {
 
     carlot.resetStyling = function(card) {
+		console.log('card resetStyling', card);
+		var allCards = document.getElementsByClassName('cards');
+
         var input = document.getElementById('textInput');
-        card.classList.remove('clicked');
-        card.classList.add('cards');
+       
+       for(var i=0; i<allCards.length; i++){
+        	var currentCard = allCards[i];
+        	console.log('currentCard', currentCard);
+        	currentCard.classList.remove('clicked');
+       }
+       
+       card.classList.add('clicked');
+
+       carlot.changeStyling(card);
+
 		input.value = '';
     };
 
-	carlot.changeStyling = function(card) {        
-        card.classList.remove('cards');
-        card.classList.add('clicked');
+	carlot.changeStyling = function(card) {	
+		console.log('card in change styling', card);
 
         var input = document.getElementById('textInput');
 
-        var currentCard = document.getElementsByClassName('clicked')[0];
+        var selectedCard = document.getElementsByClassName('clicked')[0];
 
-		var cardId = currentCard.id.split('--', 2)[1];
+		var cardId = selectedCard.id.split('--', 2)[1];
 
-		var currentDescription = document.getElementById(`description--${cardId}`);
-		// console.log('currentDescription', currentDescription);
+		var selectedDescription = document.getElementById(`description--${cardId}`);
+		// console.log('selectedDescription', selectedDescription);
 
-		input.addEventListener('keydown', function(event){
+		input.addEventListener('keyup', function(event){
 			if(event.keyCode !== 13){
-				currentDescription.innerHTML = input.value;		
+				selectedDescription.innerHTML = input.value;		
 			}else{
-				carlot.resetStyling(currentCard);
+				// carlot.resetStyling();
 				input.value = '';
 			}
 
