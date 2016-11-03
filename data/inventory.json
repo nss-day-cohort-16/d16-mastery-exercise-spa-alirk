@@ -3,36 +3,36 @@
     {
       "make": "Ford",
       "model": "Escape",
-      "year": "2006",
-      "price": "8999",
-      "description": "This is an immaculate 2006 Nissan Rogue with only 25000 miles on it. Leather seats, power everything."
+      "year": "2005",
+      "price": "3999",
+      "description": "This car is awesome!  It's been wrecked 11 times and it still runs.  A great buy!"
     },
     {
       "make": "Audi",
       "model": "A3",
       "year": "2006",
       "price": "8999",
-      "description": "This is an immaculate 2006 Nissan Rogue with only 25000 miles on it. Leather seats, power everything."
+      "description": "Just like new!  Leather interior, sunroof, and all the other fancy stuff."
     },
     {
       "make": "Chevrolet",
       "model": "Impala",
-      "year": "2006",
-      "price": "8999",
-      "description": "This is an immaculate 2006 Nissan Rogue with only 25000 miles on it. Leather seats, power everything."
+      "year": "2003",
+      "price": "699",
+      "description": "Pretty much selling for parts."
     },
     {
       "make": "Nissan",
       "model": "Sentra",
-      "year": "2006",
+      "year": "2013",
       "price": "8999",
-      "description": "This is an immaculate 2006 Nissan Rogue with only 25000 miles on it. Leather seats, power everything."
+      "description": "With only 20,000 miles, this car is in great shape."
     },
     {
       "make": "Mini Cooper",
       "model": "Hardtop",
       "year": "2006",
-      "price": "8999",
+      "price": "13999",
       "description": "This is an immaculate 2006 Nissan Rogue with only 25000 miles on it. Leather seats, power everything."
     },
     {

@@ -1,42 +1,44 @@
 'use strict';
 
-(function() {
-    function populatePage(inventory) {
-        console.log("populatePage is running");
-        var counter = 0;
+var CarLot = 
+(function(carlot){
+    
+    carlot.populatePage = function(inventory){
+    console.log("populatePage is running");
+    var counter = 0;
 
-        // Loop over the inventory and populate the page
-        inventory.forEach(function(car) {
-            var carHtml = `
-			<h1>${car.make} ${car.model}</h1>
-	  	`;
+// Loop over the inventory and populate the page
+    inventory.forEach(function(car) {
+        var carHtml = `
+        <h1>${car.year} ${car.make} ${car.model}</h1>
+        <h3>${car.price}</h3>
+        <h4 id="description--${counter}">${car.description}</h4>`;
 
-            var carCard = document.createElement('div');
-            carCard.innerHTML = carHtml;
+        var carCard = document.createElement('div');
+        carCard.innerHTML = carHtml;
 
-			var cardId = document.createAttribute('id');
-            cardId.value = `card--${counter}`;
-            carCard.setAttribute('id', cardId.value);
+        var cardId = document.createAttribute('id');
+        cardId.value = `card--${counter}`;
+        carCard.setAttribute('id', cardId.value);
 
-            console.log("carCard", carCard);
+        var carClass = document.createAttribute('class');
+        carClass.value = 'cards';
+        carCard.setAttribute('class', carClass.value);
 
-            document.getElementById("output").appendChild(carCard);
+        document.getElementById("output").appendChild(carCard);
 
-            (document.getElementById(`card--${counter}`)).addEventListener("click", function(){
-            	console.log("Click event added");
-            });
+        (document.getElementById(`card--${counter}`)).addEventListener("click", carlot.activateEvents);
+        
+        counter++;
 
-            counter++;
+    });  // close .forEach function
 
-        });
-		
-		// Now that the DOM is loaded, establish all the event listeners needed
-		// CarLot.activateEvents();
-    }
+};
 
-    // Load the inventory and send a callback function to be
-    // invoked after the process is complete
+// Load the inventory and send a callback function to be invoked after the process is complete
+carlot.loadInventory(carlot.populatePage);
 
-    CarLot.loadInventory(populatePage);
+return carlot;
 
-})(CarLot || {});
+})(CarLot);
+    

@@ -2,8 +2,14 @@
 
 var CarLot = (function(carlot){
 
-	carlot.activateEvents = function(DOMelement){
-		console.log("activateEvents running", DOMelement);
+	carlot.activateEvents = function(event){
+		console.log("activateEvents is running");
+		var card = event.currentTarget;
+		console.log('card in activateEvents', card);
+
+		document.getElementById('textInput').focus();
+		
+		carlot.changeStyling(card);
 	};
 	
 	return carlot;

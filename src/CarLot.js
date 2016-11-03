@@ -8,30 +8,32 @@ var CarLot = (function(carlot) {
 
         var testCars = [
             {
-                "make": "Chevrolet",
-                "model": "Impala"
-            },
-            {
-                "make": "Nissan",
-                "model": "Sentra"
-            },
-            {
               "make": "Mini Cooper",
-              "model": "Hardtop"  
+              "model": "Hardtop",
+              "year": "2006",
+              "price": "$13,999",
+              "description": "This car is fully-loaded and in perfect condition."
+            },
+            {
+              "make": "Jeep",
+              "model": "Wrangler",
+              "year": "2013",
+              "price": "$17,999",
+              "description": "This car only has 5,000 miles on it!  Like new!."
             }
         ];
 
         callback(testCars);
 
         // var xhr = new XMLHttpRequest();
-        // xhr.open('GET', 'data/inventory.json');
 
         // xhr.addEventListener('load', function() {
         //     cars = JSON.parse(this.responseText).cars;
 
         //     callback(cars);
         // });
-
+        
+        // xhr.open('GET', 'data/inventory.json');
         // xhr.send();
 
     };
