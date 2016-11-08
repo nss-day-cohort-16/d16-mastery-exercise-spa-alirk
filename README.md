@@ -1,5 +1,6 @@
 # Single Page Applications Quiz
 
+
 ## Instructions
 
 You operate a used car lot, and need to have an application where you can update the description and availability of each car in your inventory. You are going to using the Bootstrap grid to lay out your HTML structure.
