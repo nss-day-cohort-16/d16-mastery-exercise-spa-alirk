@@ -1,51 +1,42 @@
 'use strict';
 
-var CarLot = (function(carlot) {
+var CarLot = (function(carlot){
+	
+	carlot.changeStyling = function(){
+		console.log('changeStyling is running');
+		// console.log('card', card);
+		var card = event.currentTarget;
+		var input = document.getElementById('textInput');
+		input.focus();
+		card.classList.add('clicked');
+	}
 
-    carlot.resetStyling = function(card) {
-		console.log('card resetStyling', card);
-		var allCards = document.getElementsByClassName('cards');
 
-        var input = document.getElementById('textInput');
-       
-       for(var i=0; i<allCards.length; i++){
-        	var currentCard = allCards[i];
-        	console.log('currentCard', currentCard);
-        	currentCard.classList.remove('clicked');
-       }
-       
-       card.classList.add('clicked');
 
-       carlot.changeStyling(card);
-
-		input.value = '';
-    };
-
-	carlot.changeStyling = function(card) {	
-		console.log('card in change styling', card);
-
-        var input = document.getElementById('textInput');
-
-        var selectedCard = document.getElementsByClassName('clicked')[0];
-
-		var cardId = selectedCard.id.split('--', 2)[1];
-
+	carlot.changeDescription = function(){
+		console.log('changeDescription is running');
+		console.log('event.currentTarget', event.currentTarget);
+		var card = document.getElementsByClassName('clicked');
+		var cardId = (card[0].id).split('--', 2)[1];
 		var selectedDescription = document.getElementById(`description--${cardId}`);
-		// console.log('selectedDescription', selectedDescription);
+		// console.log('selectedDescription.innerHTML', selectedDescription.innerHTML);
+		var input = document.getElementById('textInput');
+		selectedDescription.innerHTML = input.value;		
 
-		input.addEventListener('keyup', function(event){
-			if(event.keyCode !== 13){
-				selectedDescription.innerHTML = input.value;		
-			}else{
-				// carlot.resetStyling();
-				input.value = '';
-			}
-
-		});
+	}
 
 
-    };
 
-    return carlot;
+	carlot.resetStyling = function(){
+		console.log('resetStyling is running');
+		var allCards = document.getElementsByClassName('cards');
+        for (var i = 0; i < allCards.length; i++) {
+            var currentCard = allCards[i];
+            console.log('currentCard', currentCard);
+            currentCard.classList.remove('clicked');
+        }
+	}
 
-})(CarLot || {});
+	return carlot;
+
+})(CarLot || {})

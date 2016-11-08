@@ -20,7 +20,8 @@ var CarLot = (function(carlot) {
     };
 
     carlot.getInventory = function() {
-        console.log("cars from getInventory", cars);
+        console.log('getInventory is running');
+        console.log('cars', cars);
         return cars;
     };
 

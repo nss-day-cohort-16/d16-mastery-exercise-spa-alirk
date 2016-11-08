@@ -1,17 +1,29 @@
-'use strict';
+var CarLot = (function(carlot) {
 
-var CarLot = (function(carlot){
+    carlot.activateEvents = function() {
+        console.log('activateEvents is running');
 
-	carlot.activateEvents = function(event){
-		var card = event.currentTarget;
-		console.log("activateEvents is running");
-		console.log('card in activateEvents', card);
+        var allCards = document.getElementsByClassName('cards');
 
-		document.getElementById('textInput').focus();
-		
-		CarLot.resetStyling(card);
-	};
-	
-	return carlot;
+        for (var i = 0; i < allCards.length; i++) {
+            var currentCard = allCards[i];
+            console.log('currentCard', currentCard);
+            currentCard.addEventListener('click', carlot.changeStyling);
+        }
 
-})(CarLot || {});
+        var input = document.getElementById('textInput')
+        input.addEventListener('keyup', function(event){
+			if(event.keyCode !== 13){ // typing
+				carlot.changeDescription();
+			}else{ // on Enter
+				input.value = '';
+				carlot.resetStyling();
+			}
+		});
+
+    }
+
+
+    return carlot
+
+})(CarLot || {})
