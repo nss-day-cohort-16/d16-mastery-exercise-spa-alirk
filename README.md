@@ -1,28 +1,5 @@
 # Single Page Applications Quiz
 
-## Setup
-
-1. Create the working directory for the quiz first.
-
-    ```bash
-    mkdir -p ~/workspace/quizzes/spa && cd $_
-    ```
-
-1. Clone this repository and `cd` into the directory it creates.
-1. Now run the following commands.
-
-    ```bash
-    git checkout -b quiz
-    touch index.html
-    touch quiz.js
-    touch quiz.css
-    touch inventory.json
-    ```
-
-You are now ready to work in the `quiz` branch.
-
-When your work in complete, push up the branch (`git push origin quiz`) and submit the pull request on Github.
-
 ## Instructions
 
 You operate a used car lot, and need to have an application where you can update the description and availability of each car in your inventory. You are going to using the Bootstrap grid to lay out your HTML structure.
