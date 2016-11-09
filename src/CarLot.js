@@ -1,9 +1,10 @@
 'use strict';
 
-var CarLot = (function(carlot) {
+// var CarLot = (function(carlot) {
+
     var cars = [];
 
-    carlot.loadInventory = function(callback) {
+    var loadInventory = function(callback) {
         console.log("loadInventory is running");
 
         var xhr = new XMLHttpRequest();
@@ -19,16 +20,17 @@ var CarLot = (function(carlot) {
 
     };
 
-    carlot.getInventory = function() {
+    var getInventory = function() {
         console.log('getInventory is running');
         console.log('cars', cars);
         return cars;
     };
 
-    return carlot;
+    // return carlot;
 
 
-})(CarLot || {});
+// })(CarLot || {});
 
-console.log("CarLot", CarLot);
+// console.log("CarLot", CarLot);
 
+module.exports = { loadInventory, getInventory };
