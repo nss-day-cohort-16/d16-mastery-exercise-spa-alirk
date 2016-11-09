@@ -1,19 +1,24 @@
 'use strict';
 
-var CarLot = (function(carlot){
+// var CarLot = (function(carlot){
+
+
+    var carInventory = require('./CarLot');
+    var eventHandlers = require('./dom');
+
 	
-	carlot.changeStyling = function(){
+	var changeStyling = function(){
 		console.log('changeStyling is running');
 		// console.log('card', card);
 		var card = event.currentTarget;
 		var input = document.getElementById('textInput');
 		input.focus();
 		card.classList.add('clicked');
-	}
+	};
 
 
 
-	carlot.changeDescription = function(){
+	var changeDescription = function(){
 		console.log('changeDescription is running');
 		console.log('event.currentTarget', event.currentTarget);
 		var card = document.getElementsByClassName('clicked');
@@ -22,12 +27,11 @@ var CarLot = (function(carlot){
 		// console.log('selectedDescription.innerHTML', selectedDescription.innerHTML);
 		var input = document.getElementById('textInput');
 		selectedDescription.innerHTML = input.value;		
-
-	}
-
+	};
 
 
-	carlot.resetStyling = function(){
+
+	var resetStyling = function(){
 		console.log('resetStyling is running');
 		var allCards = document.getElementsByClassName('cards');
         for (var i = 0; i < allCards.length; i++) {
@@ -35,8 +39,13 @@ var CarLot = (function(carlot){
             console.log('currentCard', currentCard);
             currentCard.classList.remove('clicked');
         }
-	}
+	};
 
-	return carlot;
 
-})(CarLot || {})
+	// return carlot;
+
+// })(CarLot || {})
+
+
+module.exports = { changeStyling, changeDescription, resetStyling };
+

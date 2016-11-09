@@ -1,8 +1,15 @@
 'use strict';
 
-var CarLot = (function(carlot){
+// var CarLot = (function(carlot){
     
-    carlot.populatePage = function(inventory){
+    // carlot.
+    // populatePage = 
+    
+    var carInventory = require('./CarLot');
+    var eventHandlers = require('./dom');
+
+
+    function populatePage(inventory){
         console.log('populatePage is running');
         console.log('inventory', inventory);
         var counter = 0;
@@ -25,36 +32,23 @@ var CarLot = (function(carlot){
 
             document.getElementById("output").appendChild(carCard);
 
-            // (document.getElementById(`card--${counter}`)). 
-            // addEventListener("click", function(event){
-            //     carlot.activateEvents(event.currentTarget);
-            // });
-
             counter++;
 
         }); 
 
-        // carlot.activateEvents = function(card){
-        //     console.log('activateEvents is running');
-        //     console.log('card', card);
+        // carlot.activateEvents();
+        eventHandlers.activateEvents(); //only one function on dom.js so just call it with the require var
 
-        //     var input = document.getElementById('textInput');
-        //     input.focus();
+    }
 
-        //     carlot.changeStyling(card);
-        //     carlot.changeDescription(card);
-        //     // carlot.resetStyling();
-        // }
+    carInventory.loadInventory(populatePage);
 
-        carlot.activateEvents();
+//     return carlot;
 
-    };
-
-// Load the inventory and send a callback function to be invoked after the process is complete
-    carlot.loadInventory(carlot.populatePage);
-
-    return carlot;
-
-})(CarLot);
+// })(CarLot);
     
-    
+
+module.exports = { populatePage };
+
+
+

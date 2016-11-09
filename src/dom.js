@@ -1,30 +1,37 @@
-var CarLot = (function(carlot) {
+'use strict';
 
-    carlot.activateEvents = function() {
+// var CarLot = (function(carlot) {
+
+    // carlot.
+    var carInventory = require('./CarLot');
+    var styling = require('./styling');
+
+
+    var activateEvents = function() {
         console.log('activateEvents is running');
 
         var allCards = document.getElementsByClassName('cards');
 
         for (var i = 0; i < allCards.length; i++) {
             var currentCard = allCards[i];
-            console.log('currentCard', currentCard);
-            currentCard.addEventListener('click', carlot.changeStyling);
+            currentCard.addEventListener('click', styling.changeStyling);
         }
 
-        var input = document.getElementById('textInput')
+        var input = document.getElementById('textInput');
         input.addEventListener('keyup', function(event){
 			if(event.keyCode !== 13){ // typing
-				carlot.changeDescription();
+				styling.changeDescription();
 			}else{ // on Enter
 				input.value = '';
-				carlot.resetStyling();
+				styling.resetStyling();
 			}
 		});
 
-    }
+    };
 
 
-    return carlot
+    // return carlot
 
-})(CarLot || {})
+// })(CarLot || {})
 
+module.exports = { activateEvents };
